@@ -62,13 +62,15 @@ Please refer to Exchange for [API Contract](https://anypoint.mulesoft.com/exchan
 
 > Endpoint: **POST /validateAddress** <br/>
 > Functionality: Validates an address and its components, standardize the address for mailing, and determine the best known geocode for it
-> API reference: https://developers.google.com/maps/documentation/address-validation/reference/rest/v1/TopLevel/validateAddress
+> API reference:
+> - https://developers.google.com/maps/documentation/address-validation/reference/rest/v1/TopLevel/validateAddress
 
 ### Identify and Calculate Ideal Route Details
 
 > Endpoint: **POST /routes** <br/>
 > Functionality: Finds the ideal route from A to Z, calculates ETAs and distances for matrices of origin and destination locations, and also offers new features
-> API reference: https://developers.google.com/maps/documentation/routes/reference/rest/v2/TopLevel/computeRoutes
+> API reference:
+> - https://developers.google.com/maps/documentation/routes/reference/rest/v2/TopLevel/computeRoutes
 
 ### Convert Coordinates into Addresses and vice-versa
 
@@ -82,13 +84,15 @@ Please refer to Exchange for [API Contract](https://anypoint.mulesoft.com/exchan
 
 > Endpoint: **POST /places** <br/>
 > Functionality: Searches for place information based on a text search string
-> API reference: https://developers.google.com/maps/documentation/places/web-service/text-search
+> API reference:
+> - https://developers.google.com/maps/documentation/places/web-service/text-search
 
 ### Get Details of Place using Place Id
 
 > Endpoint: **GET /places/{placeId}** <br/>
 > Functionality: Gets details about a particular establishment or point of interest
-> API reference: https://developers.google.com/maps/documentation/places/web-service/place-details
+> API reference:
+> - https://developers.google.com/maps/documentation/places/web-service/place-details
 
 ## Error Handling
 
