@@ -14,11 +14,11 @@ This MuleSoft project is designed to interact with the Google Maps APIs, providi
 2. [Configuration](#configuration)
     - [Environment Properties](#environment-properties)
 3. [Usage](#usage)
-    - [Executes A Salesforce Query](#executes-a-salesforce-query)
-    - [Create/Update Salesforce Object](#createupdate-salesforce-object)
-    - [Delete Salesforce Object](#delete-salesforce-object)
-    - [Calls An Apex Service](#calls-an-apex-service)
-    - [Calls Salesforce Composite API](#calls-salesforce-composite-api)
+    - [Validate Address and its Components](#executes-a-salesforce-query)
+    - [Identify and Calculate Ideal Route Details](#createupdate-salesforce-object)
+    - [Convert Coordinates into Addresses and vice-versa](#delete-salesforce-object)
+    - [Search for Places using Text](#calls-an-apex-service)
+    - [Get Details of Place using Place Id](#calls-salesforce-composite-api)
 4. [Error Handling](#error-handling)
 5. [Logging](#logging)
 6. [API Collection](#api-collection)
@@ -32,14 +32,14 @@ This MuleSoft project is designed to interact with the Google Maps APIs, providi
 Before using this MuleSoft project, ensure you have:
 
 - MuleSoft Anypoint Studio installed.
-- A Google Maps account with API key access and requisite features enabled.
+- A Google Maps Platform account with API key access and requisite features enabled.
 
 ### Installation
 
 1. Clone the project repository:
 
    ```bash
-   git clone https://github.com/yourusername/mulesoft-salesforce-system-api.git
+   git clone https://github.com/yourusername/medspeed-googlemaps-sapi.git
    ```
 
 2. Import the project into Anypoint Studio.
@@ -56,41 +56,53 @@ Adjust the environment properties in the `src/main/resources/properties/{env}.ya
 
 ## Usage
 
-Please refer to Exchange 
+Please refer to Exchange for [API Contract](https://anypoint.mulesoft.com/exchange/f015bd3e-6860-45a2-8012-1af3eec6fdba/medspeed-googlemaps-sapi)
 
-### Executes A Salesforce Query
+### Validate Address and its Components
 
-> Endpoint: **POST /query** <br/>
-> Functionality: Executes and return the SOQL query response
+> Endpoint: **POST /validateAddress** <br/>
+> Functionality: Validates an address and its components, standardize the address for mailing, and determine the best known geocode for it
+> API reference: https://developers.google.com/maps/documentation/address-validation/reference/rest/v1/TopLevel/validateAddress
 
-### Create/Update Salesforce Object
+### Identify and Calculate Ideal Route Details
 
-> Endpoint: **PUT /object** <br/>
-> Functionality:  Updates a salesforce object if exists, otherwise creates a new one
+> Endpoint: **POST /routes** <br/>
+> Functionality: Finds the ideal route from A to Z, calculates ETAs and distances for matrices of origin and destination locations, and also offers new features
+> API reference: https://developers.google.com/maps/documentation/routes/reference/rest/v2/TopLevel/computeRoutes
 
-### Delete Salesforce Object
+### Convert Coordinates into Addresses and vice-versa
 
-> Endpoint: **DELETE /object** <br/>
-> Functionality:  Deletes a salesforce object
+> Endpoint: **GET /geocode** <br/>
+> Functionality: Converts addresses or Place IDs to latitude/longitude coordinates and vice-versa
+> API reference:
+> - https://developers.google.com/maps/documentation/geocoding/requests-geocoding
+> - https://developers.google.com/maps/documentation/geocoding/requests-reverse-geocoding
 
-### Calls An Apex Service
+### Search for Places using Text
 
-> Endpoint: **POST /apex** <br/>
-> Functionality: Makes a call to salesforce apex service
+> Endpoint: **POST /places** <br/>
+> Functionality: Searches for place information based on a text search string
+> API reference: https://developers.google.com/maps/documentation/places/web-service/text-search
 
-### Calls Salesforce Composite API
+### Get Details of Place using Place Id
 
-> Endpoint: **POST /composite** <br/>
-> Functionality:  Makes a call to composite API of salesforce
+> Endpoint: **GET /places/{placeId}** <br/>
+> Functionality: Gets details about a particular establishment or point of interest
+> API reference: https://developers.google.com/maps/documentation/places/web-service/place-details
 
 ## Error Handling
 
-The project includes error handling mechanisms to gracefully handle Salesforce API errors. Refer to the exception strategies in the flows for details.
+The project includes error handling mechanisms to gracefully handle Google Maps API errors. Refer to the exception strategies in the flows for details.
 
 ## Logging
 
 Logging is configured to provide visibility into the flow execution. Check the logs in Anypoint Studio or the deployed application for troubleshooting.
 
+## API Collection 
+
+Please refer the below API collection link to explore the endpoint(s) in real time.
+<br/><br/>
+[<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://medspeed-mulesoft-testing.postman.co/collection/32024449-dd84c206-3e48-4373-b22a-604c4966eadb?source=rip_markdown)
 
 ## Contributing
 
